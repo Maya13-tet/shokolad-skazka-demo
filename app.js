@@ -1,3 +1,18 @@
+// Меню-гамбургер на узких экранах
+(function(){
+  const b = document.getElementById("burger");
+  const m = document.getElementById("menu");
+  if (!b || !m) return;
+  function set(open){
+    m.classList.toggle("open", open);
+    b.setAttribute("aria-expanded", open);
+    b.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
+  }
+  b.addEventListener("click", () => set(!m.classList.contains("open")));
+  m.addEventListener("click", e => { if (e.target.tagName === "A") set(false); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") set(false); });
+})();
+
 // Лиса-спутник: появляется после первого экрана и плавно едет вдоль страницы
 (function(){
   const guide = document.querySelector(".guide");
