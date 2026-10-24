@@ -31,3 +31,12 @@
   addEventListener("resize", tick);
   tick();
 })();
+
+// Шапка становится плотной, когда страница прокручена: белый текст всегда читается
+(function(){
+  const top = document.querySelector(".top");
+  if (!top) return;
+  function s(){ top.classList.toggle("solid", window.scrollY > 40); }
+  addEventListener("scroll", s, { passive: true });
+  s();
+})();

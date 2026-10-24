@@ -1,11 +1,11 @@
 :root{
-  --plum:#3A1F5C;--plum2:#2B1647;--choc:#4A2417;--cream:#FFF4E3;--lilac:#EFE5FF;
-  --berry:#E2406C;--gold:#F6C453;--fox:#F08A24;--mint:#5CC8A8;
+  --ink:#33202F;--plum:#3A1F5C;--plum2:#2B1647;--choc:#4A2417;--cream:#FFF4E3;--lilac:#EFE5FF;
+  --berry:#C42B58;--gold:#F6C453;--fox:#F08A24;--mint:#5CC8A8;
   --head:"Ruslan Display",Georgia,serif;--body:"Nunito",system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
-body{font:400 1.08rem/1.65 var(--body);color:var(--plum);background:var(--cream);overflow-x:hidden}
+body{font:400 1.08rem/1.65 var(--body);color:var(--ink);background:var(--cream);overflow-x:hidden}
 a{color:inherit}
 .wrap{width:min(68rem,100% - 2rem);margin-inline:auto}
 .wrap--narrow{width:min(42rem,100% - 2rem)}
@@ -17,13 +17,15 @@ h3{font-size:1.4rem}
 .acts{display:flex;justify-content:center;margin-top:1.8rem}
 
 .btn{display:inline-block;background:var(--berry);color:#fff;font:800 1.05rem var(--body);text-decoration:none;
-  padding:.9rem 2rem;border-radius:2rem;box-shadow:0 6px 0 #B2264F;transition:transform .15s,box-shadow .15s}
-.btn:hover{transform:translateY(2px);box-shadow:0 4px 0 #B2264F}
+  padding:.9rem 2rem;border-radius:2rem;box-shadow:0 8px 20px rgba(43,22,71,.3);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(43,22,71,.36)}
+.btn:active{transform:translateY(1px);box-shadow:0 4px 10px rgba(43,22,71,.28)}
 .btn:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 
 /* шапка */
 .top{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 1.2rem;
-  background:linear-gradient(rgba(58,31,92,.55),rgba(58,31,92,0))}
+  background:linear-gradient(rgba(58,31,92,.55),rgba(58,31,92,0));transition:background .25s,box-shadow .25s}
+.top.solid{background:rgba(43,22,71,.94);box-shadow:0 6px 22px rgba(43,22,71,.28)}
 .top__logo{font:400 1.25rem var(--head);color:#fff;text-decoration:none}
 .top__nav{display:flex;gap:1.3rem}
 .top__nav a{color:#fff;text-decoration:none;font-weight:600;font-size:.97rem}
@@ -48,9 +50,9 @@ h3{font-size:1.4rem}
 .hero{position:relative;height:100vh;height:100svh;min-height:600px;overflow:hidden;background:#F59CC4}
 .scene{position:absolute;inset:0;width:100%;height:100%}
 .hero__text{position:absolute;left:0;right:0;top:clamp(3.6rem,8vh,5rem);text-align:center;color:#fff;padding:0 1rem;
-  text-shadow:0 3px 0 rgba(58,31,92,.55),0 8px 24px rgba(58,31,92,.4);pointer-events:none}
+  text-shadow:0 2px 14px rgba(43,22,71,.55);pointer-events:none}
 .hero h1{font-size:clamp(1.7rem,4.4vw,3.3rem);max-width:22ch;margin:0 auto}
-.hero__sub{margin:.6rem 0 0;font-weight:800;font-size:clamp(.95rem,2vw,1.2rem)}
+.hero__sub{display:inline-block;margin:.8rem 0 0;padding:.3rem 1.1rem;border-radius:2rem;background:rgba(43,22,71,.7);font-weight:800;font-size:clamp(.95rem,2vw,1.2rem)}
 .hero__btn{position:absolute;left:50%;bottom:clamp(1.2rem,4vh,2.4rem);transform:translateX(-50%);animation:fade 1s ease-out 3.4s both;z-index:2}
 .hero__btn:hover{transform:translateX(-50%) translateY(2px)}
 
@@ -96,12 +98,12 @@ h3{font-size:1.4rem}
 .flavor{text-align:center}
 .flavor h3{margin:1rem 0 .4rem}
 .flavor p{font-size:1rem;opacity:.85}
-.pack{position:relative;aspect-ratio:3/4;border-radius:1rem;display:grid;place-items:center;box-shadow:0 14px 0 rgba(58,31,92,.12);transform:rotate(-2deg);transition:transform .25s}
+.pack{position:relative;aspect-ratio:3/4;border-radius:1rem;display:grid;place-items:center;box-shadow:0 18px 30px rgba(58,31,92,.2);transform:rotate(-2deg);transition:transform .25s}
 .flavor:nth-child(even) .pack{transform:rotate(2deg)}
 .flavor:hover .pack{transform:rotate(0) translateY(-6px)}
 .pack::before{content:"";position:absolute;left:-6%;right:-6%;top:36%;height:28%;background:var(--plum);border-block:5px solid var(--gold)}
 .pack span{position:relative;z-index:1;font:400 1.35rem var(--head);color:var(--cream);margin-top:.2rem}
-.f1 .pack{background:#B4682F}.f2 .pack{background:#4A2417}.f3 .pack{background:#C9892B}.f4 .pack{background:#A63C6A}
+.f1 .pack{background:#9A5524}.f2 .pack{background:#4A2417}.f3 .pack{background:#8A5A12}.f4 .pack{background:#A63C6A}
 @media(max-width:900px){.flavors{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.flavors{gap:1rem}.flavor h3{font-size:1.15rem}.flavor p{font-size:.92rem}}
 
@@ -111,9 +113,10 @@ h3{font-size:1.4rem}
 @media(max-width:760px){.trio{grid-template-columns:1fr}}
 
 .shops{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:40rem;margin:0 auto}
-.shop{display:grid;place-items:center;min-height:5rem;border-radius:1.2rem;color:#fff;text-decoration:none;font:800 1.2rem var(--body);box-shadow:0 6px 0 rgba(0,0,0,.18);transition:transform .15s}
-.shop:hover{transform:translateY(3px)}
-.shop--wb{background:#A12BC4}.shop--oz{background:#1F6BFF}.shop--ym{background:#E6A800;color:var(--plum)}.shop--pt{background:var(--plum)}
+.shop{display:grid;place-items:center;min-height:5rem;border-radius:1.2rem;color:#fff;text-decoration:none;font:800 1.2rem var(--body);box-shadow:0 10px 22px rgba(43,22,71,.22);transition:transform .15s,box-shadow .15s}
+.shop:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(43,22,71,.3)}
+.shop:active{transform:translateY(1px)}
+.shop--wb{background:#A12BC4}.shop--oz{background:#1A5FE0}.shop--ym{background:#E6A800;color:var(--plum)}.shop--pt{background:var(--plum)}
 @media(max-width:480px){.shops{grid-template-columns:1fr}}
 
 .links{list-style:none;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-top:2rem}
@@ -121,6 +124,13 @@ h3{font-size:1.4rem}
 .links a:hover{background:var(--gold);color:var(--plum)}
 
 .foot{background:var(--plum2);color:#CDB9F0;text-align:center;padding:1.6rem 1rem;font:400 1rem var(--head)}
+
+/* детали браузера в цветах бренда */
+::selection{background:var(--gold);color:var(--plum2)}
+html{scrollbar-color:var(--berry) var(--lilac)}
+body{caret-color:var(--berry)}
+a{text-underline-offset:.2em}
+.links a:focus-visible,.shop:focus-visible{outline-offset:4px}
 
 /* лиса-спутник */
 .guide{position:fixed;right:10px;bottom:10px;width:5.5rem;z-index:15;opacity:0;pointer-events:none;transition:opacity .4s,transform .15s linear}
