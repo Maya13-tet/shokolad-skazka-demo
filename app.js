@@ -40,3 +40,10 @@
   addEventListener("scroll", s, { passive: true });
   s();
 })();
+
+// Бесконечные анимации первого экрана ставятся на паузу, когда экран не виден
+(function(){
+  const hero = document.querySelector(".hero");
+  if (!hero || !("IntersectionObserver" in window)) return;
+  new IntersectionObserver(function(e){ hero.classList.toggle("is-off", !e[0].isIntersecting); }).observe(hero);
+})();

@@ -1,10 +1,11 @@
 :root{
   --ink:#33202F;--plum:#3A1F5C;--plum2:#2B1647;--choc:#4A2417;--cream:#FFF4E3;--lilac:#EFE5FF;
   --berry:#C42B58;--gold:#F6C453;--fox:#F08A24;--mint:#5CC8A8;
-  --head:"Ruslan Display",Georgia,serif;--body:"Nunito",system-ui,sans-serif;
+  --ease:cubic-bezier(.23,1,.32,1);--head:"Ruslan Display",Georgia,serif;--body:"Nunito",system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:rgba(196,43,88,.18)}
+a,button{touch-action:manipulation}
 body{font:400 1.08rem/1.65 var(--body);color:var(--ink);background:var(--cream);overflow-x:hidden}
 a{color:inherit}
 .wrap{width:min(68rem,100% - 2rem);margin-inline:auto}
@@ -17,8 +18,7 @@ h3{font-size:1.4rem}
 .acts{display:flex;justify-content:center;margin-top:1.8rem}
 
 .btn{display:inline-block;background:var(--berry);color:#fff;font:800 1.05rem var(--body);text-decoration:none;
-  padding:.9rem 2rem;border-radius:2rem;box-shadow:0 8px 20px rgba(43,22,71,.3);transition:transform .15s,box-shadow .15s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(43,22,71,.36)}
+  padding:.9rem 2rem;border-radius:2rem;box-shadow:0 8px 20px rgba(43,22,71,.3);transition:transform .16s var(--ease),box-shadow .16s var(--ease)}
 .btn:active{transform:translateY(1px);box-shadow:0 4px 10px rgba(43,22,71,.28)}
 .btn:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 
@@ -26,11 +26,11 @@ h3{font-size:1.4rem}
 .top{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 1.2rem;
   background:linear-gradient(rgba(58,31,92,.55),rgba(58,31,92,0));transition:background .25s,box-shadow .25s}
 .top.solid{background:rgba(43,22,71,.94);box-shadow:0 6px 22px rgba(43,22,71,.28)}
+.top{padding-left:max(1.2rem,env(safe-area-inset-left));padding-right:max(1.2rem,env(safe-area-inset-right))}
 .top__logo{font:400 1.25rem var(--head);color:#fff;text-decoration:none}
 .top__nav{display:flex;gap:1.3rem}
 .top__nav a{color:#fff;text-decoration:none;font-weight:600;font-size:.97rem}
-.top__nav a:hover{text-decoration:underline}
-.top__burger{display:none;position:relative;width:2.8rem;height:2.8rem;border:0;border-radius:50%;background:rgba(58,31,92,.55);cursor:pointer;animation:fade .5s ease-out .2s both}
+.top__burger{display:none;position:relative;width:2.8rem;height:2.8rem;border:0;border-radius:50%;background:rgba(58,31,92,.55);cursor:pointer;animation:fade .5s var(--ease) .2s both}
 .top__burger span,.top__burger span::before,.top__burger span::after{content:"";position:absolute;left:50%;width:1.3rem;height:3px;margin-left:-.65rem;background:#fff;border-radius:2px;transition:transform .2s,opacity .2s}
 .top__burger span{top:50%;margin-top:-1.5px}
 .top__burger span::before{top:-7px;margin-left:-.65rem;left:0}
@@ -53,22 +53,21 @@ h3{font-size:1.4rem}
   text-shadow:0 2px 14px rgba(43,22,71,.55);pointer-events:none}
 .hero h1{font-size:clamp(1.7rem,4.4vw,3.3rem);max-width:22ch;margin:0 auto}
 .hero__sub{display:inline-block;margin:.8rem 0 0;padding:.3rem 1.1rem;border-radius:2rem;background:rgba(43,22,71,.7);font-weight:800;font-size:clamp(.95rem,2vw,1.2rem)}
-.hero__btn{position:absolute;left:50%;bottom:clamp(1.2rem,4vh,2.4rem);transform:translateX(-50%);animation:fade .6s ease-out 1.2s both;z-index:2}
-.hero__btn:hover{transform:translateX(-50%) translateY(2px)}
+.hero__btn{position:absolute;left:50%;bottom:clamp(1.2rem,4vh,2.4rem);transform:translateX(-50%);animation:fade .6s var(--ease) 1.2s both;z-index:2}
 
 /* анимация сцены */
 .cloud{animation:part 3.2s cubic-bezier(.6,.05,.25,1) .5s forwards}
 .cloud--l{--dx:-900px}.cloud--r{--dx:900px}
 @keyframes part{to{transform:translateX(var(--dx))}}
-.castle,.road,.sun,.stars{animation:rise 1.4s ease-out 1.2s both}
-.fox{animation:fade .9s ease-out 2.4s both}
-.bar{animation:fade .9s ease-out 2.9s both}
+.castle,.road,.sun,.stars{animation:rise 1.4s var(--ease) 1.2s both}
+.fox{animation:fade .9s var(--ease) 2.4s both}
+.bar{animation:fade .9s var(--ease) 2.9s both}
 .sparkles{animation:twinkle 2.6s ease-in-out 3.3s infinite both}
 @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @keyframes twinkle{0%,100%{opacity:.2}50%{opacity:1}}
-.hero__text{animation:fade .5s ease-out both}
-.top__logo,.top__nav{animation:fade .5s ease-out .2s both}
+.hero__text{animation:fade .5s var(--ease) both}
+.top__logo,.top__nav{animation:fade .5s var(--ease) .2s both}
 .fox__in{animation:foxbob 3s ease-in-out 3.4s infinite;transform-box:fill-box;transform-origin:center bottom}
 .fox .tail{animation:wag 2s ease-in-out 3.4s infinite;transform-box:fill-box;transform-origin:0% 60%}
 .bar__in{animation:float 4s ease-in-out 3.6s infinite}
@@ -98,9 +97,8 @@ h3{font-size:1.4rem}
 .flavor{text-align:center}
 .flavor h3{margin:1rem 0 .4rem}
 .flavor p{font-size:1rem;opacity:.85}
-.pack{position:relative;aspect-ratio:3/4;border-radius:1rem;display:grid;place-items:center;box-shadow:0 18px 30px rgba(58,31,92,.2);transform:rotate(-2deg);transition:transform .25s}
+.pack{position:relative;aspect-ratio:3/4;border-radius:1rem;display:grid;place-items:center;box-shadow:0 18px 30px rgba(58,31,92,.2);transform:rotate(-2deg);transition:transform .25s var(--ease)}
 .flavor:nth-child(even) .pack{transform:rotate(2deg)}
-.flavor:hover .pack{transform:rotate(0) translateY(-6px)}
 .pack::before{content:"";position:absolute;left:-6%;right:-6%;top:36%;height:28%;background:var(--plum);border-block:5px solid var(--gold)}
 .pack span{position:relative;z-index:1;font:400 1.35rem var(--head);color:var(--cream);margin-top:.2rem}
 .f1 .pack{background:#9A5524}.f2 .pack{background:#4A2417}.f3 .pack{background:#8A5A12}.f4 .pack{background:#A63C6A}
@@ -113,15 +111,13 @@ h3{font-size:1.4rem}
 @media(max-width:760px){.trio{grid-template-columns:1fr}}
 
 .shops{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:40rem;margin:0 auto}
-.shop{display:grid;place-items:center;min-height:5rem;border-radius:1.2rem;color:#fff;text-decoration:none;font:800 1.2rem var(--body);box-shadow:0 10px 22px rgba(43,22,71,.22);transition:transform .15s,box-shadow .15s}
-.shop:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(43,22,71,.3)}
+.shop{display:grid;place-items:center;min-height:5rem;border-radius:1.2rem;color:#fff;text-decoration:none;font:800 1.2rem var(--body);box-shadow:0 10px 22px rgba(43,22,71,.22);transition:transform .16s var(--ease),box-shadow .16s var(--ease)}
 .shop:active{transform:translateY(1px)}
 .shop--wb{background:#A12BC4}.shop--oz{background:#1A5FE0}.shop--ym{background:#E6A800;color:var(--plum)}.shop--pt{background:var(--plum)}
 @media(max-width:480px){.shops{grid-template-columns:1fr}}
 
 .links{list-style:none;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-top:2rem}
 .links a{display:block;padding:.8rem 1.6rem;border:2px solid var(--gold);border-radius:2rem;text-decoration:none;font-weight:800;color:var(--cream)}
-.links a:hover{background:var(--gold);color:var(--plum)}
 
 .foot{background:var(--plum2);color:#CDB9F0;text-align:center;padding:1.6rem 1rem;font:400 1rem var(--head)}
 
@@ -133,12 +129,28 @@ a{text-underline-offset:.2em}
 .links a:focus-visible,.shop:focus-visible{outline-offset:4px}
 
 /* лиса-спутник */
-.guide{position:fixed;right:10px;bottom:10px;width:5.5rem;z-index:15;opacity:0;pointer-events:none;transition:opacity .4s,transform .15s linear}
+.guide{position:fixed;right:max(10px,env(safe-area-inset-right));bottom:max(10px,env(safe-area-inset-bottom));width:5.5rem;z-index:15;opacity:0;pointer-events:none;transition:opacity .4s,transform .15s linear}
 .guide.on{opacity:1}
 .guide__in{animation:foxbob 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center bottom}
 
+/* наведение только для мыши: на телефоне элементы не залипают */
+@media(hover:hover) and (pointer:fine){
+.top__nav a:hover{text-decoration:underline}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(43,22,71,.36)}
+.hero__btn:hover{transform:translateX(-50%) translateY(2px)}
+.flavor:hover .pack{transform:rotate(0) translateY(-6px)}
+.shop:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(43,22,71,.3)}
+.links a:hover{background:var(--gold);color:var(--plum)}
+}
+
+/* когда первый экран ушёл вверх, его бесконечные анимации стоят */
+.hero.is-off *{animation-play-state:paused}
+
+/* режим «меньше движения»: остаются плавные появления, уходят перемещения и бесконечные циклы */
 @media(prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
-  .cloud{display:none}
   html{scroll-behavior:auto}
+  *{animation-delay:0s!important;transition-duration:.01ms!important}
+  .cloud{display:none}
+  .castle,.road,.sun,.stars{animation-name:fade}
+  .fox__in,.fox .tail,.bar__in,.drift--1,.drift--2,.sparkles,.guide__in{animation:none}
 }
