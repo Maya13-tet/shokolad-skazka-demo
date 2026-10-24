@@ -64,7 +64,7 @@ h3{font-size:1.4rem}
 @keyframes drift{from{transform:translateX(-40px)}to{transform:translateX(60px)}}
 
 @media(max-width:700px){
-  .scene .fox{transform:translate(525px,590px) scale(.62)}
+  .scene .fox{transform:translate(530px,606px) scale(.72)}
   .scene .bar{transform:translate(655px,520px) rotate(-7deg) scale(.55)}
 }
 
