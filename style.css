@@ -30,7 +30,7 @@ h3{font-size:1.4rem}
 .top__nav{display:flex;gap:1.3rem}
 .top__nav a{color:#fff;text-decoration:none;font-weight:600;font-size:.97rem}
 .top__nav a:hover{text-decoration:underline}
-.top__burger{display:none;position:relative;width:2.8rem;height:2.8rem;border:0;border-radius:50%;background:rgba(58,31,92,.55);cursor:pointer;animation:fade .8s ease-out 3.4s both}
+.top__burger{display:none;position:relative;width:2.8rem;height:2.8rem;border:0;border-radius:50%;background:rgba(58,31,92,.55);cursor:pointer;animation:fade .5s ease-out .2s both}
 .top__burger span,.top__burger span::before,.top__burger span::after{content:"";position:absolute;left:50%;width:1.3rem;height:3px;margin-left:-.65rem;background:#fff;border-radius:2px;transition:transform .2s,opacity .2s}
 .top__burger span{top:50%;margin-top:-1.5px}
 .top__burger span::before{top:-7px;margin-left:-.65rem;left:0}
@@ -53,7 +53,7 @@ h3{font-size:1.4rem}
   text-shadow:0 2px 14px rgba(43,22,71,.55);pointer-events:none}
 .hero h1{font-size:clamp(1.7rem,4.4vw,3.3rem);max-width:22ch;margin:0 auto}
 .hero__sub{display:inline-block;margin:.8rem 0 0;padding:.3rem 1.1rem;border-radius:2rem;background:rgba(43,22,71,.7);font-weight:800;font-size:clamp(.95rem,2vw,1.2rem)}
-.hero__btn{position:absolute;left:50%;bottom:clamp(1.2rem,4vh,2.4rem);transform:translateX(-50%);animation:fade 1s ease-out 3.4s both;z-index:2}
+.hero__btn{position:absolute;left:50%;bottom:clamp(1.2rem,4vh,2.4rem);transform:translateX(-50%);animation:fade .6s ease-out 1.2s both;z-index:2}
 .hero__btn:hover{transform:translateX(-50%) translateY(2px)}
 
 /* анимация сцены */
@@ -67,8 +67,8 @@ h3{font-size:1.4rem}
 @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @keyframes twinkle{0%,100%{opacity:.2}50%{opacity:1}}
-.hero__text{animation:fade 1s ease-out 3.2s both}
-.top__logo,.top__nav{animation:fade .8s ease-out 3.4s both}
+.hero__text{animation:fade .5s ease-out both}
+.top__logo,.top__nav{animation:fade .5s ease-out .2s both}
 .fox__in{animation:foxbob 3s ease-in-out 3.4s infinite;transform-box:fill-box;transform-origin:center bottom}
 .fox .tail{animation:wag 2s ease-in-out 3.4s infinite;transform-box:fill-box;transform-origin:0% 60%}
 .bar__in{animation:float 4s ease-in-out 3.6s infinite}
@@ -85,7 +85,7 @@ h3{font-size:1.4rem}
 }
 
 /* секции с волнистым верхом */
-.sec{position:relative;padding:clamp(4.5rem,9vw,7rem) 0 clamp(3.5rem,7vw,5.5rem);background:var(--bg)}
+.sec{position:relative;overflow-x:clip;padding:clamp(4.5rem,9vw,7rem) 0 clamp(3.5rem,7vw,5.5rem);background:var(--bg)}
 .sec::before{content:"";position:absolute;left:0;right:0;top:-1px;height:70px;transform:translateY(-69px);background:var(--bg);
   -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 70' preserveAspectRatio='none'%3E%3Cpath d='M0 70V40C150 0 300 0 450 30S750 70 900 35 1100 5 1200 30V70Z'/%3E%3C/svg%3E") center/100% 100% no-repeat;
           mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 70' preserveAspectRatio='none'%3E%3Cpath d='M0 70V40C150 0 300 0 450 30S750 70 900 35 1100 5 1200 30V70Z'/%3E%3C/svg%3E") center/100% 100% no-repeat}
